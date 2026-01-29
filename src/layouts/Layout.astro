@@ -18,11 +18,17 @@ const { title = "Airboost - High-performance SQLite cache for Airtable", descrip
 		<meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
 		<title>{title}</title>
+    
+    <!-- Font Loading - Optimized with display=swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#002e87" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
 	</head>
-	<body class="bg-base-100 text-base-content min-h-screen flex flex-col font-sans antialiased selection:bg-primary/20 selection:text-primary">
+	<body class="bg-base-100 text-base-content min-h-screen flex flex-col antialiased selection:bg-primary/20 selection:text-primary overflow-x-hidden">
 		<slot />
 	</body>
 </html>

@@ -8,6 +8,7 @@ import Features from '../components/landing/Features.astro';
 import Architecture from '../components/landing/Architecture.astro';
 import TerminalDemo from '../components/landing/TerminalDemo.astro';
 import ApiDocs from '../components/landing/ApiDocs.astro';
+import { Github, MessageCircle, Rocket, Heart } from '@lucide/astro';
 ---
 
 <Layout>
@@ -23,26 +24,60 @@ import ApiDocs from '../components/landing/ApiDocs.astro';
     <ApiDocs />
   </main>
 
-  <footer class="bg-base-300 py-12 border-t border-base-content/10">
+  <footer class="relative bg-base-200/50 py-12 border-t border-base-content/10 backdrop-blur-sm">
+    <!-- Subtle gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-t from-base-300/30 to-transparent -z-10"></div>
+    
     <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
         
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 flex items-center justify-center">
-             <img src="/airboost_logo.svg" alt="Airboost Logo" class="w-full h-full" />
+        <!-- Logo & Brand -->
+        <div class="flex flex-col items-center md:items-start gap-3">
+          <div class="flex items-center gap-2 group">
+            <div class="w-8 h-8 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+               <img src="/airboost_logo.svg" alt="Airboost Logo" class="w-full h-full" />
+            </div>
+            <span class="font-display font-bold text-xl tracking-tight" style="font-family: var(--font-display);">Airboost</span>
           </div>
-          <span class="font-bold text-xl tracking-tight">Airboost</span>
+          <p class="text-sm text-base-content/50 max-w-xs text-center md:text-left">
+            High-performance SQLite cache for Airtable
+          </p>
         </div>
 
-        <div class="flex gap-6 text-sm font-medium text-base-content/60">
-          <a href="https://github.com/guischk/airboost" class="hover:text-primary transition-colors">GitHub</a>
-          <a href="https://github.com/guischk/airboost/issues" class="hover:text-primary transition-colors">Issues</a>
-          <a href="https://railway.com/template/airboost?referralCode=3Ri9K9" class="hover:text-primary transition-colors">Deploy</a>
-        </div>
+        <!-- Navigation Links -->
+        <nav class="flex flex-wrap justify-center gap-8 text-sm font-medium">
+          <div class="flex flex-col gap-3">
+            <h3 class="font-semibold text-base-content/80 uppercase tracking-wider text-xs mb-1">Resources</h3>
+            <a href="https://github.com/guischk/airboost" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-base-content/60 hover:text-primary transition-colors duration-300">
+              <Github class="w-4 h-4" />
+              <span>GitHub</span>
+            </a>
+            <a href="https://github.com/guischk/airboost/issues" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-base-content/60 hover:text-primary transition-colors duration-300">
+              <MessageCircle class="w-4 h-4" />
+              <span>Issues</span>
+            </a>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <h3 class="font-semibold text-base-content/80 uppercase tracking-wider text-xs mb-1">Deploy</h3>
+            <a href="https://railway.com/template/airboost?referralCode=3Ri9K9" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-base-content/60 hover:text-primary transition-colors duration-300">
+              <Rocket class="w-4 h-4" />
+              <span>Railway</span>
+            </a>
+          </div>
+        </nav>
 
-        <div class="text-sm text-base-content/40 text-center md:text-right">
-          <p>© {new Date().getFullYear()} Guischk. MIT License.</p>
-          <p class="mt-1">Built with <a href="https://astro.build" class="underline hover:text-primary">Astro</a> & <a href="https://bun.sh" class="underline hover:text-primary">Bun</a>.</p>
+        <!-- Copyright & Credits -->
+        <div class="text-sm text-base-content/50 text-center md:text-right space-y-2">
+          <p class="font-medium">© {new Date().getFullYear()} Guischk</p>
+          <p class="text-xs">
+            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">MIT License</a>
+          </p>
+          <p class="text-xs flex items-center justify-center md:justify-end gap-1">
+            Built with <Heart class="w-3 h-3 text-error animate-pulse" fill="currentColor" style="animation-duration: 2s;" /> using
+            <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="underline hover:text-primary transition-colors">Astro</a> &
+            <a href="https://bun.sh" target="_blank" rel="noopener noreferrer" class="underline hover:text-primary transition-colors">Bun</a>
+          </p>
         </div>
 
       </div>

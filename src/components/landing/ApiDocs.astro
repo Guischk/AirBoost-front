@@ -1,4 +1,6 @@
 ---
+import { ExternalLink } from '@lucide/astro';
+
 const endpoints = [
   { method: 'GET', path: '/health', desc: 'Health check (no auth required)' },
   { method: 'GET', path: '/api/tables', desc: 'List all cached tables' },
@@ -8,35 +10,43 @@ const endpoints = [
   { method: 'POST', path: '/api/refresh', desc: 'Trigger manual cache refresh' },
 ];
 ---
-<section class="py-24 bg-base-200/50">
+<section class="py-24 bg-gradient-to-b from-base-100 to-base-200/50">
   <div class="container mx-auto px-4">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold mb-4">Simple, Restful API</h2>
-        <p class="text-base-content/60">
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-4" style="font-family: var(--font-display);">
+          Simple, <span class="text-gradient-primary">RESTful API</span>
+        </h2>
+        <p class="text-lg text-base-content/60 leading-relaxed">
           Standard REST endpoints that are easy to consume from any frontend or backend.
         </p>
       </div>
 
       <div class="space-y-4">
-        {endpoints.map(endpoint => (
-          <div class="group bg-base-100 rounded-lg border border-base-content/5 p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 hover:border-primary/30 hover:shadow-lg transition-all">
-            <div class={`badge ${endpoint.method === 'GET' ? 'badge-info' : 'badge-success'} badge-lg font-mono font-bold w-20`}>
+        {endpoints.map((endpoint, index) => (
+          <div 
+            class="group bg-base-100 rounded-xl border border-base-content/5 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 hover:border-primary/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-sm"
+            style={`animation: slide-in-right 0.5s ease-out ${index * 0.08}s both;`}
+          >
+            <div class={`badge ${endpoint.method === 'GET' ? 'badge-info' : 'badge-success'} badge-lg font-mono font-bold w-20 group-hover:scale-105 transition-transform duration-300`}>
               {endpoint.method}
             </div>
-            <div class="flex-1 font-mono text-sm sm:text-base text-base-content/80 group-hover:text-primary transition-colors">
+            <div class="flex-1 font-mono text-sm sm:text-base text-base-content/80 group-hover:text-primary transition-colors duration-300 break-all">
               {endpoint.path}
             </div>
-            <div class="text-sm text-base-content/50">
+            <div class="text-sm text-base-content/50 group-hover:text-base-content/70 transition-colors duration-300">
               {endpoint.desc}
             </div>
           </div>
         ))}
         
-        <div class="mt-8 text-center">
-           <a href="https://github.com/guischk/airboost#api-endpoints" target="_blank" class="link link-primary no-underline hover:underline inline-flex items-center gap-1">
-             View full API documentation
-             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        <div class="mt-8 text-center pt-8">
+           <a href="https://github.com/guischk/airboost#api-endpoints" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-all duration-300">
+             <span class="relative">
+               View full API documentation
+               <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+             </span>
+             <ExternalLink class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
            </a>
         </div>
       </div>
@@ -44,3 +54,16 @@ const endpoints = [
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>

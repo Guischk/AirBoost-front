@@ -1,4 +1,6 @@
 ---
+import { Check } from '@lucide/astro';
+
 const tabs = ['Local', 'Docker', 'Railway'];
 ---
 <script>
@@ -32,31 +34,39 @@ const tabs = ['Local', 'Docker', 'Railway'];
     <div class="grid md:grid-cols-2 gap-12 items-center">
       
       <div>
-        <h2 class="text-3xl font-bold mb-6">Developer Experience First</h2>
-        <p class="text-base-content/60 mb-8 leading-relaxed">
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-6" style="font-family: var(--font-display);">
+          Developer <span class="text-gradient-accent">Experience</span> First
+        </h2>
+        <p class="text-base-content/60 mb-8 leading-relaxed text-lg">
           Airboost is designed to feel like a native part of your toolchain. 
           Whether you're running locally, in Docker, or on the cloud, it just works.
         </p>
         
         <ul class="space-y-4 mb-8">
-          <li class="flex items-start gap-3">
-            <svg class="w-6 h-6 text-success mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          <li class="flex items-start gap-3 group">
+            <div class="mt-0.5 w-6 h-6 rounded-lg bg-success/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Check class="w-4 h-4 text-success" stroke-width={3} />
+            </div>
             <div>
-              <strong class="block text-base-content">Standard Environment Variables</strong>
+              <strong class="block text-base-content font-semibold">Standard Environment Variables</strong>
               <span class="text-sm text-base-content/60">Configure everything via `.env` file</span>
             </div>
           </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-6 h-6 text-success mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          <li class="flex items-start gap-3 group">
+            <div class="mt-0.5 w-6 h-6 rounded-lg bg-success/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Check class="w-4 h-4 text-success" stroke-width={3} />
+            </div>
             <div>
-              <strong class="block text-base-content">Auto-generated Types</strong>
+              <strong class="block text-base-content font-semibold">Auto-generated Types</strong>
               <span class="text-sm text-base-content/60">Fetch `/api/types` to get TS definitions</span>
             </div>
           </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-6 h-6 text-success mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          <li class="flex items-start gap-3 group">
+            <div class="mt-0.5 w-6 h-6 rounded-lg bg-success/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Check class="w-4 h-4 text-success" stroke-width={3} />
+            </div>
             <div>
-              <strong class="block text-base-content">Built on Bun</strong>
+              <strong class="block text-base-content font-semibold">Built on Bun</strong>
               <span class="text-sm text-base-content/60">Leveraging the fastest JS runtime</span>
             </div>
           </li>
@@ -64,11 +74,11 @@ const tabs = ['Local', 'Docker', 'Railway'];
       </div>
 
       <!-- Terminal Window -->
-      <div class="mockup-window bg-base-300 border border-base-content/10 shadow-2xl">
+      <div class="mockup-window bg-base-300 border border-base-content/10 shadow-2xl hover:shadow-3xl transition-shadow duration-500">
         <div class="flex border-b border-base-content/5 px-4 bg-base-200/50">
           {tabs.map((tab, i) => (
             <button 
-              class={`tab-btn px-4 py-2 text-sm font-medium transition-colors ${i === 0 ? 'bg-base-content/10 text-base-content' : 'text-base-content/50 hover:text-base-content/80'}`}
+              class={`tab-btn px-4 py-2 text-sm font-medium transition-all duration-300 ${i === 0 ? 'bg-base-content/10 text-base-content' : 'text-base-content/50 hover:text-base-content/80'}`}
               data-target={`tab-${tab.toLowerCase()}`}
             >
               {tab}

@@ -1,37 +1,51 @@
 ---
 ---
-<section id="deploy" class="py-20 relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 -z-10"></div>
+<section id="deploy" class="py-24 relative overflow-hidden">
+  <!-- Enhanced gradient background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 -z-10"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,theme(colors.primary/0.1),transparent_50%)] -z-10"></div>
   
   <div class="container mx-auto px-4">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-6">Ready to fly?</h2>
-      <p class="text-xl text-base-content/60 mb-12 max-w-2xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-display font-bold mb-6" style="font-family: var(--font-display);">
+        Ready to <span class="text-gradient-primary">fly</span>?
+      </h2>
+      <p class="text-xl text-base-content/60 mb-12 max-w-2xl mx-auto leading-relaxed">
         Deploy a production-ready instance in seconds. No complex configuration required.
       </p>
 
-      <div class="card bg-base-100 shadow-2xl border border-base-content/5 overflow-hidden transform hover:scale-[1.01] transition-transform duration-300">
-        <div class="card-body items-center text-center p-12">
+      <div class="card bg-base-100 shadow-2xl border border-base-content/5 overflow-hidden hover:shadow-3xl hover:border-primary/10 transition-all duration-500 group">
+        <div class="card-body items-center text-center p-8 md:p-12 relative">
           
-          <div class="mb-8 p-4 bg-base-200/50 rounded-full">
-            <svg class="w-16 h-16 text-base-content" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0002 0.899902L22.9502 6.5999V18.1499L12.0002 23.8499L1.0502 18.1499V6.5999L12.0002 0.899902ZM12.0002 13.9249L17.7752 10.7499L12.0002 7.5749L6.2252 10.7499L12.0002 13.9249ZM3.3002 16.7499V8.0499L5.5502 9.2999V15.5499L10.8752 18.5499V21.1749L3.3002 16.7499ZM20.7002 16.7499L13.1252 21.1749V18.5499L18.4502 15.5499V9.2999L20.7002 8.0499V16.7499Z"/></svg>
+          <!-- Decorative corner accents -->
+          <div class="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-br-full opacity-50"></div>
+          <div class="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-secondary/10 to-transparent rounded-tl-full opacity-50"></div>
+          
+          <div class="mb-8 p-6 bg-gradient-to-br from-base-200/50 to-base-200/30 rounded-2xl group-hover:scale-105 transition-transform duration-500 relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <svg class="w-16 h-16 text-base-content relative z-10 group-hover:text-primary transition-colors duration-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0002 0.899902L22.9502 6.5999V18.1499L12.0002 23.8499L1.0502 18.1499V6.5999L12.0002 0.899902ZM12.0002 13.9249L17.7752 10.7499L12.0002 7.5749L6.2252 10.7499L12.0002 13.9249ZM3.3002 16.7499V8.0499L5.5502 9.2999V15.5499L10.8752 18.5499V21.1749L3.3002 16.7499ZM20.7002 16.7499L13.1252 21.1749V18.5499L18.4502 15.5499V9.2999L20.7002 8.0499V16.7499Z"/></svg>
           </div>
 
-          <h3 class="card-title text-2xl mb-2">Deploy on Railway</h3>
-          <p class="text-base-content/60 mb-8 max-w-md">
+          <h3 class="card-title text-2xl md:text-3xl mb-3 font-display" style="font-family: var(--font-display);">
+            Deploy on Railway
+          </h3>
+          <p class="text-base-content/60 mb-8 max-w-md leading-relaxed">
             Get your own Airboost instance running with automatic HTTPS, zero-downtime deployments, and auto-scaling.
           </p>
 
-          <a href="https://railway.com/template/airboost?referralCode=3Ri9K9" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center justify-center">
-            <div class="absolute transition-all duration-200 rounded-xl -inset-1 bg-gradient-to-r from-primary to-secondary opacity-70 blur-lg group-hover:opacity-100 group-hover:-inset-1.5 animate-tilt"></div>
-            <img src="https://railway.com/button.svg" alt="Deploy on Railway" class="relative block h-14 rounded-lg shadow-xl transform transition hover:-translate-y-0.5" />
+          <a href="https://railway.com/template/airboost?referralCode=3Ri9K9" target="_blank" rel="noopener noreferrer" class="deploy-button-wrapper group/btn relative inline-flex items-center justify-center">
+            <div class="deploy-glow absolute transition-all duration-300 rounded-xl -inset-1 bg-gradient-to-r from-primary to-secondary opacity-60 blur-lg group-hover/btn:opacity-100 group-hover/btn:-inset-1.5"></div>
+            <img src="https://railway.com/button.svg" alt="Deploy on Railway" class="relative block h-14 rounded-lg shadow-xl transform transition-all duration-300 group-hover/btn:-translate-y-1 group-hover/btn:shadow-2xl" />
           </a>
 
-          <div class="mt-8 text-xs text-base-content/40 max-w-lg">
-            <p class="mb-2 font-medium text-base-content/60">Why use this link?</p>
-            <p>
+          <div class="mt-8 p-4 rounded-xl bg-base-200/30 border border-base-content/5 text-xs text-base-content/60 max-w-lg backdrop-blur-sm">
+            <p class="mb-2 font-semibold text-base-content/70 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Why use this link?
+            </p>
+            <p class="leading-relaxed">
               By deploying with this template, you support the ongoing development of Airboost at no extra cost to you.
-              You get $5 in free credit for your first month on Railway.
+              You get <span class="font-semibold text-success">$5 in free credit</span> for your first month on Railway.
             </p>
           </div>
         </div>
@@ -40,3 +54,24 @@
     </div>
   </div>
 </section>
+
+<style>
+  .deploy-glow {
+    animation: deploy-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes deploy-pulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+  }
+
+  .deploy-button-wrapper:hover .deploy-glow {
+    animation: deploy-pulse 1.5s ease-in-out infinite;
+  }
+</style>
