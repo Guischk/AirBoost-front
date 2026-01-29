@@ -1,0 +1,46 @@
+---
+const endpoints = [
+  { method: 'GET', path: '/health', desc: 'Health check (no auth required)' },
+  { method: 'GET', path: '/api/tables', desc: 'List all cached tables' },
+  { method: 'GET', path: '/api/tables/:table', desc: 'Get records from a table' },
+  { method: 'GET', path: '/api/tables/:table/:id', desc: 'Get a specific record' },
+  { method: 'GET', path: '/api/stats', desc: 'Cache statistics' },
+  { method: 'POST', path: '/api/refresh', desc: 'Trigger manual cache refresh' },
+];
+---
+<section class="py-24 bg-base-200/50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Simple, Restful API</h2>
+        <p class="text-base-content/60">
+          Standard REST endpoints that are easy to consume from any frontend or backend.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {endpoints.map(endpoint => (
+          <div class="group bg-base-100 rounded-lg border border-base-content/5 p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 hover:border-primary/30 hover:shadow-lg transition-all">
+            <div class={`badge ${endpoint.method === 'GET' ? 'badge-info' : 'badge-success'} badge-lg font-mono font-bold w-20`}>
+              {endpoint.method}
+            </div>
+            <div class="flex-1 font-mono text-sm sm:text-base text-base-content/80 group-hover:text-primary transition-colors">
+              {endpoint.path}
+            </div>
+            <div class="text-sm text-base-content/50">
+              {endpoint.desc}
+            </div>
+          </div>
+        ))}
+        
+        <div class="mt-8 text-center">
+           <a href="https://github.com/guischk/airboost#api-endpoints" target="_blank" class="link link-primary no-underline hover:underline inline-flex items-center gap-1">
+             View full API documentation
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+           </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

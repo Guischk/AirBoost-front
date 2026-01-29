@@ -1,0 +1,50 @@
+---
+---
+<section class="py-20 bg-base-200/50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">The Performance Gap</h2>
+      
+      <div class="card bg-base-100 shadow-2xl overflow-hidden border border-base-content/5">
+        <div class="p-8 md:p-12 grid gap-12">
+          
+          <!-- Airtable Metric -->
+          <div class="space-y-3">
+            <div class="flex justify-between items-end mb-2">
+              <span class="text-lg font-semibold text-base-content/70">Direct Airtable API</span>
+              <span class="text-2xl font-mono font-bold text-error">~270ms</span>
+            </div>
+            <div class="h-4 bg-base-200 rounded-full overflow-hidden">
+              <div class="h-full bg-error/80 w-full rounded-full animate-pulse"></div>
+            </div>
+            <p class="text-sm text-base-content/50">Rate limited to 5 requests per second</p>
+          </div>
+
+          <!-- Airboost Metric -->
+          <div class="space-y-3">
+            <div class="flex justify-between items-end mb-2">
+              <span class="text-lg font-semibold text-primary flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+                With Airboost
+              </span>
+              <span class="text-4xl font-mono font-bold text-success">1ms</span>
+            </div>
+            <div class="h-4 bg-base-200 rounded-full overflow-hidden relative">
+              <div class="absolute top-0 left-0 h-full bg-success w-[1%] rounded-full shadow-[0_0_15px_rgba(var(--success),0.5)]"></div>
+            </div>
+            <p class="text-sm text-success font-medium">Unlimited requests per second</p>
+          </div>
+
+        </div>
+        
+        <div class="bg-base-200/50 p-6 text-center border-t border-base-content/5">
+          <p class="text-base-content/70">
+            Average response time based on production benchmarks. 
+            <span class="font-bold text-base-content">240x faster</span> for standard queries.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

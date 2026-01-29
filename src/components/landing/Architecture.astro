@@ -1,0 +1,75 @@
+---
+---
+<section id="architecture" class="py-24 bg-base-200/30">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4">How it works</h2>
+      <p class="text-base-content/60 max-w-2xl mx-auto">
+        Our dual-database architecture ensures your API is always available, even during heavy sync operations.
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="relative bg-base-100 rounded-2xl border border-base-content/10 p-8 md:p-12 shadow-xl overflow-hidden">
+        
+        <!-- Background Grid -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(var(--base-content),0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(var(--base-content),0.02)_1px,transparent_1px)] bg-[size:20px_20px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]"></div>
+
+        <div class="relative z-10 flex flex-col items-center gap-12">
+          
+          <!-- Top: API Requests -->
+          <div class="flex items-center gap-4 w-full justify-center">
+             <div class="badge badge-lg badge-ghost gap-2 px-4 py-3">
+                <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span>
+                API Requests
+             </div>
+          </div>
+
+          <!-- Middle: Active DB -->
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            <div class="relative w-64 h-32 bg-base-100 rounded-xl border border-primary/20 flex flex-col items-center justify-center gap-2 shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+              <div class="font-bold">Active Database</div>
+              <div class="text-xs text-success font-mono">SERVING TRAFFIC</div>
+            </div>
+            
+            <!-- Connection Lines -->
+            <div class="absolute -top-12 left-1/2 w-0.5 h-12 bg-gradient-to-b from-transparent to-base-content/20"></div>
+            <div class="absolute -bottom-12 left-1/2 w-0.5 h-12 bg-gradient-to-b from-base-content/20 to-transparent"></div>
+          </div>
+
+          <!-- Atomic Swap Indicator -->
+          <div class="bg-base-200 rounded-full px-6 py-2 text-sm font-mono border border-base-content/10 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+            Atomic Swap
+          </div>
+
+          <!-- Bottom: Inactive System -->
+          <div class="grid grid-cols-2 gap-8 w-full max-w-lg">
+            
+            <!-- Inactive DB -->
+            <div class="bg-base-200/50 rounded-xl border border-base-content/5 p-6 flex flex-col items-center gap-2 opacity-60">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+               <div class="font-medium text-sm">Inactive DB</div>
+               <div class="text-[10px] bg-base-300 px-2 py-0.5 rounded">UPDATING</div>
+            </div>
+
+            <!-- Airtable -->
+            <div class="bg-base-200/50 rounded-xl border border-base-content/5 p-6 flex flex-col items-center gap-2 relative">
+               <!-- Sync Arrow -->
+               <div class="absolute top-1/2 -left-6 transform -translate-y-1/2">
+                 <svg class="w-4 h-4 text-base-content/30 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+               </div>
+               
+               <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Airtable_Logo.svg" alt="Airtable" class="h-8 opacity-70 grayscale" />
+               <div class="font-medium text-sm">Airtable API</div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

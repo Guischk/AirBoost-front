@@ -1,0 +1,147 @@
+---
+const tabs = ['Local', 'Docker', 'Railway'];
+---
+<script>
+  // Simple tab switching logic
+  const buttons = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active classes
+      buttons.forEach(b => {
+        b.classList.remove('bg-base-content/10', 'text-base-content');
+        b.classList.add('text-base-content/50');
+      });
+      contents.forEach(c => c.classList.add('hidden'));
+
+      // Add active classes
+      btn.classList.remove('text-base-content/50');
+      btn.classList.add('bg-base-content/10', 'text-base-content');
+      
+      const targetId = btn.getAttribute('data-target');
+      if (targetId) {
+        document.getElementById(targetId)?.classList.remove('hidden');
+      }
+    });
+  });
+</script>
+
+<section class="py-24">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      
+      <div>
+        <h2 class="text-3xl font-bold mb-6">Developer Experience First</h2>
+        <p class="text-base-content/60 mb-8 leading-relaxed">
+          Airboost is designed to feel like a native part of your toolchain. 
+          Whether you're running locally, in Docker, or on the cloud, it just works.
+        </p>
+        
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-success mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <div>
+              <strong class="block text-base-content">Standard Environment Variables</strong>
+              <span class="text-sm text-base-content/60">Configure everything via `.env` file</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-success mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <div>
+              <strong class="block text-base-content">Auto-generated Types</strong>
+              <span class="text-sm text-base-content/60">Fetch `/api/types` to get TS definitions</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-success mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <div>
+              <strong class="block text-base-content">Built on Bun</strong>
+              <span class="text-sm text-base-content/60">Leveraging the fastest JS runtime</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Terminal Window -->
+      <div class="mockup-window bg-base-300 border border-base-content/10 shadow-2xl">
+        <div class="flex border-b border-base-content/5 px-4 bg-base-200/50">
+          {tabs.map((tab, i) => (
+            <button 
+              class={`tab-btn px-4 py-2 text-sm font-medium transition-colors ${i === 0 ? 'bg-base-content/10 text-base-content' : 'text-base-content/50 hover:text-base-content/80'}`}
+              data-target={`tab-${tab.toLowerCase()}`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+        
+        <div class="p-6 bg-[#0d1117] text-gray-300 font-mono text-sm overflow-x-auto min-h-[300px]">
+          
+          <!-- Local Tab -->
+          <div id="tab-local" class="tab-content">
+            <div class="mb-4">
+              <span class="text-gray-500"># Clone the repository</span><br/>
+              <span class="text-success">➜</span> <span class="text-blue-400">~</span> git clone https://github.com/guischk/airboost.git<br/>
+            </div>
+            <div class="mb-4">
+              <span class="text-gray-500"># Install dependencies</span><br/>
+              <span class="text-success">➜</span> <span class="text-blue-400">~/airboost</span> bun install<br/>
+              <span class="text-gray-400">bun install v1.0.0 (89ms)</span><br/>
+              <span class="text-gray-400"> + 28 packages installed</span>
+            </div>
+            <div class="mb-4">
+              <span class="text-gray-500"># Start the server</span><br/>
+              <span class="text-success">➜</span> <span class="text-blue-400">~/airboost</span> bun run start<br/>
+              <span class="text-gray-400">$ bun src/index.ts</span>
+            </div>
+            <div class="animate-pulse">
+              <span class="text-green-400">✓</span> Connected to Airtable<br/>
+              <span class="text-green-400">✓</span> Database initialized<br/>
+              <span class="text-purple-400">🚀 Airboost v1.0.0 ready on port 3000</span>
+            </div>
+          </div>
+
+          <!-- Docker Tab -->
+          <div id="tab-docker" class="tab-content hidden">
+            <div class="mb-4">
+              <span class="text-gray-500"># Run with Docker</span><br/>
+              <span class="text-success">➜</span> <span class="text-blue-400">~</span> docker run -d \<br/>
+              &nbsp;&nbsp;-e AIRTABLE_PERSONAL_TOKEN=key... \<br/>
+              &nbsp;&nbsp;-e AIRTABLE_BASE_ID=app... \<br/>
+              &nbsp;&nbsp;-p 3000:3000 \<br/>
+              &nbsp;&nbsp;ghcr.io/guischk/airboost:latest
+            </div>
+            <div class="animate-pulse">
+              <span class="text-gray-400">Unable to find image 'ghcr.io/guischk/airboost:latest' locally</span><br/>
+              <span class="text-gray-400">latest: Pulling from guischk/airboost</span><br/>
+              <span class="text-purple-400">Digest: sha256:7f...</span><br/>
+              <span class="text-purple-400">Status: Downloaded newer image</span><br/>
+              <span class="text-green-400">bf7d4c8...</span>
+            </div>
+          </div>
+
+          <!-- Railway Tab -->
+          <div id="tab-railway" class="tab-content hidden">
+            <div class="mb-4">
+               <span class="text-gray-500"># Install Railway CLI</span><br/>
+               <span class="text-success">➜</span> <span class="text-blue-400">~</span> npm i -g @railway/cli
+            </div>
+            <div class="mb-4">
+               <span class="text-gray-500"># Deploy project</span><br/>
+               <span class="text-success">➜</span> <span class="text-blue-400">~/airboost</span> railway up<br/>
+            </div>
+            <div class="animate-pulse">
+               <span class="text-gray-400">☁️  Deploying to Railway...</span><br/>
+               <span class="text-green-400">✓</span> Built image<br/>
+               <span class="text-green-400">✓</span> Variables configured<br/>
+               <span class="text-purple-400">🔗 https://airboost-production.up.railway.app</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
